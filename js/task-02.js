@@ -5,10 +5,9 @@
 // Добавит элементу класс item.
 // После чего вставит все < li > за одну операцию в список ul#ingredients.
 
-// const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
+const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
 
-// const ingredientsList = document.querySelector('#ingredients');
-// ingredientsList.textContent = 'INGREDIENTS:';
+const ingredientsList = document.querySelector('#ingredients');
 // 1
 // for (let i = 0; i < ingredients.length; i += 1) {
 //   const ingredientsItem = document.createElement('li');
@@ -25,6 +24,3 @@ for (const item of ingredients) {
   ingredientsList.appendChild(ingredientsItem);
 }
 console.log('ingredientsList', ingredientsList);
-//
-// //
-
