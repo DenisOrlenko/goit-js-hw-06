@@ -13,6 +13,39 @@ const images = [
   },
 ];
 
+// .map(img => `<li><img src = "${img.url}" alt = "${img.alt}"  width = 320 height = 240 /></li>`)
+// 1) Деструктуризация {url, alt} + шаблонная строка + map() => возвращает массив + стили CSS (style = "display: flex; height: auto")
+// 2) .join() массив приводит к строке ([] => " ")
+// 3) добавление шаблона HTML-разметки в базовую разметку insertAdjacentHTML()
+// 4) добавление стилей .list через list.style = "" или  setAttribute()
+// 5) добавление стилей .picture.style
+const list = document.querySelector('.gallery');
+
+const markup = images
+  .map(({ url, alt }) => `<li><img class = "image" src = "${url}" alt = "${alt}" width = 320 style = "display: flex; height: auto"/></li>`)
+  .join('');
+
+list.insertAdjacentHTML('beforeend', markup);
+list.style = 'list-style: none; display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;';
+// list.setAttribute('style', 'list-style-type: none; display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center;');
+//
+// const picture = document.querySelector('.image');
+// picture.style.display = 'block';
+// picture.style.maxWidth = '100%';
+// picture.style.height = 'auto';
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // 1
 // const galleryListEl = document.querySelector('.gallery');
 // galleryListEl.style = 'display:flex; flex-direction: column; gap:10px; list-style:none; align-items: center';
@@ -26,14 +59,14 @@ const images = [
 // console.log('galleryListEl', galleryListEl);
 //
 // 2
-const galleryListEl = document.querySelector('.gallery');
-galleryListEl.style = 'display:flex; flex-direction: column; gap:10px; list-style:none; align-items: center';
+// const galleryListEl = document.querySelector('.gallery');
+// galleryListEl.style = 'display:flex; flex-direction: column; gap:10px; list-style:none; align-items: center';
 
-for (const image of images) {
-  galleryListEl.insertAdjacentHTML(
-    'afterbegin',
-    `<li class = "gallery-item"> <img src = "${image.url}" alt = "${image.alt}" width = 320 height = 240 style = display:block></li>`
-  );
-}
+// for (const image of images) {
+//   galleryListEl.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li class = "gallery-item"> <img src = "${image.url}" alt = "${image.alt}" width = 320 height = 240 style = display:block></li>`
+//   );
+// }
 
-console.log('galleryListEl', galleryListEl);
+// console.log('galleryListEl', galleryListEl);
